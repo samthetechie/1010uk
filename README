@@ -1,0 +1,20 @@
+10:10 Hackday API Hackery CURL notes
+
+Adding a value:
+curl -F key=your_api_key -F start_date=2010-10-04 -F end_date=2010-11-04 -F energy_kwh=123.45 -F category=electricity http://my.1010uk.org/api/profile/energy/electricity
+
+Deleting a value by id:
+curl -i -X DELETE http://my.1010uk.org/api/profile/energy/electricity/your_json_object_id?key=your_api_key
+
+Editing a value by id:
+curl -i -v -H "Content-Type:application/json" --upload-file ./your_json_object_id.json http://comments.latest.my-1010.appspot.com/api/profile/energy/electricity/your_json_object_id?key=your_api_key
+
+n.b change  "http://comments.latest.my-1010.appspot.com" back to  "http://my.1010uk.org/" when the code edits have been published to the production server.
+
+curl -i -v --header "Content-Type: application/json" --upload-file ./your_json_object_id http://my.1010uk.org/api/profile/energy/electricity/your_json_object_id?key=your_api_key
+
+Getting JSON object element by id:
+curl -i -X GET http://my.1010uk.org/api/profile/energy/electricity/your_json_object_id?key=your_api_key
+
+Getting the entire JSON object i.e. all id's:
+curl -i -X GET http://my.1010uk.org/api/profile/energy/electricity?key=your_api_key
